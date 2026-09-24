@@ -13,9 +13,9 @@ const LEGACY_STORAGE_KEY_CATEGORIES = 'ssd_anuradhapura_categories';
 const LEGACY_STORAGE_KEY_OFFLINE_QUEUE = 'ssd_anuradhapura_offline_queue';
 
 export const DEFAULT_SETTINGS: AppSettings = {
-  spreadsheetId: '18l67nRFpXUpbdOJjanCYDbXJdIlIHOj9n15DOEXPmYo', // Make sure to paste your actual Sheet ID here
+  spreadsheetId: '1Bx92TL1K3U4q0l_0ocslKxavEmeyg1xFzp2BNkpB1LE',
   sheetName: 'Sheet1',
-  appScriptUrl: 'https://script.google.com/macros/s/AKfycby-t0P_cHjXfXUCKXyW5m0XbTTa6I19Zrw9QnuFNrVJSUCCeBQeCvvahpUuP4gKsDdBpQ/exec',
+  appScriptUrl: 'https://script.google.com/macros/s/AKfycbzljX2BunJ5IgZ1firso1KZhSk53Uyi42--Vas_mkReMR5x9idQ11MvyIG5SEey6wbF/exec',
   autoSync: true,
   currencyPrefix: 'Rs',
   paddedFormat: false,
