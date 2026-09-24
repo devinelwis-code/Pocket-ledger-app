@@ -1,0 +1,6 @@
+{
+  "name": "SSD Anuradhapura - Income & Expense Tracker",
+  "description": "Secure real-time income and expense tracker with Google Sheets sync, interactive financial analytics, encrypted local database, offline support, receipt attachments, and PDF/CSV reporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
