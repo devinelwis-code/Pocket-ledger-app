@@ -52,7 +52,7 @@ export default function App(// --- GOOGLE SHEETS 2-MINUTE AUTO-PULL ---
         if (Array.isArray(remoteData)) {
           // 1. Get current local data to protect any unsynced offline records
           const localData = JSON.parse(localStorage.getItem('pocket_ledger_vault_tx') || '[]');
-          const pending = localData.filter((tx: any) => tx.syncStatus === 'pending');
+          const pending = localData.filter((tx: { syncStatus: string }) => tx.syncStatus === 'pending');
           
           // 2. Overwrite the local vault with Sheet data, but keep offline pending records
           const merged = [...remoteData, ...pending];
