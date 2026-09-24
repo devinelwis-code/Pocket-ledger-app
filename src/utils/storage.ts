@@ -46,68 +46,7 @@ export const DEFAULT_CATEGORIES: Category[] = [
   { id: 'cat_exp_oth', name: 'Other Expenses', emoji: '📦', type: 'Expense', color: '#64748b' },
 ];
 
-export const INITIAL_TRANSACTIONS: Transaction[] = [
-  {
-    id: 'tx_seed_1',
-    date: '2026-09-22',
-    timestamp: '2026.09.22 09:30:00',
-    type: 'Income',
-    category: '💼 Salary & Wages',
-    description: 'Monthly Remittance & Contract Retainer',
-    amount: 150000,
-    balance: 150000,
-    syncStatus: 'synced',
-    createdAt: Date.now() - 86400000 * 2,
-  },
-  {
-    id: 'tx_seed_2',
-    date: '2026-09-22',
-    timestamp: '2026.09.22 14:15:00',
-    type: 'Expense',
-    category: '⚡ Utility & Power Bills',
-    description: 'CEB Electricity & Water Utility Bill',
-    amount: 14250,
-    balance: 135750,
-    syncStatus: 'synced',
-    createdAt: Date.now() - 86400000 * 2 + 1000,
-  },
-  {
-    id: 'tx_seed_3',
-    date: '2026-09-23',
-    timestamp: '2026.09.23 11:20:00',
-    type: 'Expense',
-    category: '🛒 Groceries & Provisions',
-    description: 'Cargills Food City office refreshments',
-    amount: 8640,
-    balance: 127110,
-    syncStatus: 'synced',
-    createdAt: Date.now() - 86400000,
-  },
-  {
-    id: 'tx_seed_4',
-    date: '2026-09-23',
-    timestamp: '2026.09.23 16:45:00',
-    type: 'Income',
-    category: '🏢 Business / Freelance Sales',
-    description: 'Client consultation payment invoice #412',
-    amount: 45000,
-    balance: 172110,
-    syncStatus: 'synced',
-    createdAt: Date.now() - 86400000 + 5000,
-  },
-  {
-    id: 'tx_seed_5',
-    date: '2026-09-24',
-    timestamp: '2026.09.24 10:10:00',
-    type: 'Expense',
-    category: '🚗 Fuel & Transport',
-    description: 'Sinopec fuel station petrol refills',
-    amount: 5500,
-    balance: 166610,
-    syncStatus: 'synced',
-    createdAt: Date.now() - 3600000 * 4,
-  },
-];
+export const INITIAL_TRANSACTIONS: Transaction[] = [];
 
 export async function loadTransactions(): Promise<Transaction[]> {
   try {
