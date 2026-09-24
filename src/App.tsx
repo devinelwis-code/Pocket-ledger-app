@@ -39,7 +39,8 @@ import {
   Lock,
 } from 'lucide-react';
 
-export default function App(// --- GOOGLE SHEETS 2-MINUTE AUTO-PULL ---
+export default function App() {
+  // --- GOOGLE SHEETS 2-MINUTE AUTO-PULL ---
   useEffect(() => {
     const autoPullFromSheet = async () => {
       // Your active deployment URL
@@ -74,7 +75,8 @@ export default function App(// --- GOOGLE SHEETS 2-MINUTE AUTO-PULL ---
     const interval = setInterval(autoPullFromSheet, 120000); 
     return () => clearInterval(interval);
   }, []);
-  // ----------------------------------------) {
+  // ----------------------------------------
+
   const [activeTab, setActiveTab] = useState<'dashboard' | 'trends' | 'reports' | 'files' | 'settings'>('dashboard');
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
