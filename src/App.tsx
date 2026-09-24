@@ -37,7 +37,42 @@ import {
   Lock,
 } from 'lucide-react';
 
-export default function App() {
+export default function App(// --- GOOGLE SHEETS 2-MINUTE AUTO-PULL ---
+  useEffect(() => {
+    const autoPullFromSheet = async () => {
+      // Your active deployment URL
+      const appScriptUrl = 'https://script.google.com/macros/s/AKfycbzljX2BunJ5IgZ1firso1KZhSk53Uyi42--Vas_mkReMR5x9idQ11MvyIG5SEey6wbF/exec';
+      
+      if (!navigator.onLine) return; // Skip if phone has no internet
+      
+      try {
+        const res = await fetch(appScriptUrl);
+        const remoteData = await res.json();
+        
+        if (Array.isArray(remoteData)) {
+          // 1. Get current local data to protect any unsynced offline records
+          const localData = JSON.parse(localStorage.getItem('pocket_ledger_vault_tx') || '[]');
+          const pending = localData.filter((tx: any) => tx.syncStatus === 'pending');
+          
+          // 2. Overwrite the local vault with Sheet data, but keep offline pending records
+          const merged = [...remoteData, ...pending];
+          localStorage.setItem('pocket_ledger_vault_tx', JSON.stringify(merged));
+          
+          // 3. Trigger the app to refresh the screen visually
+          window.dispatchEvent(new Event('storage'));
+        }
+      } catch (e) {
+        console.error('Auto-pull failed', e);
+      }
+    };
+
+    autoPullFromSheet(); // Run instantly when the app is opened
+    
+    // Set timer to run every 120,000 milliseconds (2 minutes)
+    const interval = setInterval(autoPullFromSheet, 120000); 
+    return () => clearInterval(interval);
+  }, []);
+  // ----------------------------------------) {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'trends' | 'reports' | 'files' | 'settings'>('dashboard');
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
